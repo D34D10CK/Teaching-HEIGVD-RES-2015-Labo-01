@@ -26,6 +26,8 @@ public class FileTransformerTest {
     writer.flush();
     writer.close();
     ft.visit(inputFile);
+      System.out.println(FileUtils.checksumCRC32(inputFile));
+      System.out.println(FileUtils.checksumCRC32(outputFile));
     assertTrue( FileUtils.contentEquals(inputFile, outputFile) );
     FileUtils.deleteDirectory(new File("./tmp"));
   }
